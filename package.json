@@ -1,0 +1,19 @@
+{
+  "name": "banana-coin",
+  "version": "1.0.0",
+  "description": "For Gran Canaria API crash course",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/sospedra/banana-coin.git"
+  },
+  "author": "Rubén Sospedra",
+  "license": "SEE LICENSE IN LICENSE.txt",
+  "bugs": {
+    "url": "https://gitlab.com/sospedra/banana-coin/issues"
+  },
+  "homepage": "https://gitlab.com/sospedra/banana-coin#README"
+}
