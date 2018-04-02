@@ -1,5 +1,8 @@
 const repository = require('./repository')
 
+const STATUS_OPEN = 'open'
+const STAUTS_CLOSE = 'close'
+
 /**
  * getAll - Return all the operations
  */
@@ -33,7 +36,10 @@ getByID.path = '/:id'
  */
 const create = module.exports.create = (req, res) => {
   try {
-    const newOperationID = repository.create(req.body)
+    const newOperationID = repository.create({
+      ...req.body,
+      status: STATUS_OPEN
+    })
 
     return res.send({ id: newOperationID })
   } catch (ex) {
@@ -77,7 +83,7 @@ deleteByID.path = '/:id'
  */
 const closeByID = module.exports.closeByID = (req, res) => {
   try {
-    return res.send(repository.update(req.params.id, { status: 'closed' }))
+    return res.send(repository.update(req.params.id, { status: STAUTS_CLOSE }))
   } catch (ex) {
     console.log('closed error')
   }

@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`operations routes should create one operation from create 1`] = `
+Array [
+  Array [
+    "verb",
+    "post",
+  ],
+  Array [
+    "path",
+    "/",
+  ],
+]
+`;
+
+exports[`operations routes should return all the operations from getAll 1`] = `
+Array [
+  Array [
+    "verb",
+    "get",
+  ],
+  Array [
+    "path",
+    "/",
+  ],
+]
+`;

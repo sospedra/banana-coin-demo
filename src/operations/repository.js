@@ -1,6 +1,8 @@
 const operationsRepository = function () {}
 
-operationsRepository.operations = []
+const DEFAULT_STATE = []
+
+operationsRepository.operations = DEFAULT_STATE
 
 operationsRepository.getAll = function () {
   return this.operations
@@ -41,6 +43,10 @@ operationsRepository.remove = function (id) {
     ...this.operations.slice(0, index),
     ...this.operations.slice(index + 1)
   ]
+}
+
+operationsRepository.purge = function () {
+  this.operations = DEFAULT_STATE
 }
 
 module.exports = operationsRepository

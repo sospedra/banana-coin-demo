@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "test": "npm test"
+    "test": "jest src/**/test/*.spec.js"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
     "express": "^4.16.3"
   },
   "devDependencies": {
+    "jest": "^22.4.3",
     "nodemon": "^1.17.3"
   }
 }
