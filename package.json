@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "test": "jest src/**/test/*.spec.js --collect-coverage"
+    "test": "jest src/**/test/*.spec.js --collectCoverage"
   },
   "repository": {
     "type": "git",
