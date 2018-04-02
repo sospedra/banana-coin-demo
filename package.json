@@ -4,6 +4,8 @@
   "description": "For Gran Canaria API crash course",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
     "test": "npm test"
   },
   "repository": {
@@ -15,5 +17,12 @@
   "bugs": {
     "url": "https://gitlab.com/sospedra/banana-coin/issues"
   },
-  "homepage": "https://gitlab.com/sospedra/banana-coin#README"
+  "homepage": "https://gitlab.com/sospedra/banana-coin#README",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.3"
+  }
 }
