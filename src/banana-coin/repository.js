@@ -8,9 +8,7 @@ const DB_PATH = path.resolve(__dirname, 'db.json')
 
 const getRegistry = async () => {
   const file = await readFile(DB_PATH)
-  const p = JSON.parse(file)
-  console.log(p)
-  return p
+  return JSON.parse(file)
 }
 
 const saveRegistry = (lastID, logs) => {
