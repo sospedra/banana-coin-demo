@@ -1,4 +1,4 @@
-const repository = require('./repository')
+const repository = require('../services/repository')(__dirname, 'db.json')
 
 const STATUS_OPEN = 'open'
 const STAUTS_CLOSE = 'close'
@@ -6,7 +6,7 @@ const STAUTS_CLOSE = 'close'
 /**
  * getAll - Return all the operations
  */
-const getAll = module.exports.getAll = async (req, res) => {
+module.exports.getAll = async (req, res) => {
   try {
     const registry = await repository.getAll()
     return res.send(registry)
@@ -15,13 +15,13 @@ const getAll = module.exports.getAll = async (req, res) => {
   }
 }
 
-getAll.verb = 'get'
-getAll.path = '/'
+module.exports.getAll.verb = 'get'
+module.exports.getAll.path = '/'
 
 /**
  * getByID - Return one operation given the id
  */
-const getByID = module.exports.getByID = async (req, res) => {
+module.exports.getByID = async (req, res) => {
   try {
     const log = await repository.getByID(parseInt(req.params.id))
     return res.send(log)
@@ -30,13 +30,13 @@ const getByID = module.exports.getByID = async (req, res) => {
   }
 }
 
-getByID.verb = 'get'
-getByID.path = '/:id'
+module.exports.getByID.verb = 'get'
+module.exports.getByID.path = '/:id'
 
 /**
  * create - Add a new operation given a payload
  */
-const create = module.exports.create = async (req, res) => {
+module.exports.create = async (req, res) => {
   try {
     const newOperationID = await repository.create({
       ...req.body,
@@ -49,13 +49,13 @@ const create = module.exports.create = async (req, res) => {
   }
 }
 
-create.verb = 'post'
-create.path = '/'
+module.exports.create.verb = 'post'
+module.exports.create.path = '/'
 
 /**
  * updateByID - Change operation data by id
  */
-const updateByID = module.exports.updateByID = async (req, res) => {
+module.exports.updateByID = async (req, res) => {
   try {
     await repository.update(parseInt(req.params.id), req.body)
     return res.send(200)
@@ -64,13 +64,13 @@ const updateByID = module.exports.updateByID = async (req, res) => {
   }
 }
 
-updateByID.verb = 'put'
-updateByID.path = '/:id'
+module.exports.updateByID.verb = 'put'
+module.exports.updateByID.path = '/:id'
 
 /**
  * deleteByID - Remove one operation by id
  */
-const deleteByID = module.exports.deleteByID = async (req, res) => {
+module.exports.deleteByID = async (req, res) => {
   try {
     await repository.remove(parseInt(req.params.id))
     return res.send(200)
@@ -79,13 +79,13 @@ const deleteByID = module.exports.deleteByID = async (req, res) => {
   }
 }
 
-deleteByID.verb = 'delete'
-deleteByID.path = '/:id'
+module.exports.deleteByID.verb = 'delete'
+module.exports.deleteByID.path = '/:id'
 
 /**
  * closeByID - Change operation status to closed by id
  */
-const closeByID = module.exports.closeByID = async (req, res) => {
+module.exports.closeByID = async (req, res) => {
   try {
     await repository.update(parseInt(req.params.id), { status: STAUTS_CLOSE })
     return res.send(200)
@@ -94,5 +94,5 @@ const closeByID = module.exports.closeByID = async (req, res) => {
   }
 }
 
-closeByID.verb = 'put'
-closeByID.path = '/close/:id'
+module.exports.closeByID.verb = 'put'
+module.exports.closeByID.path = '/close/:id'
