@@ -8,7 +8,7 @@ const STAUTS_CLOSE = 'close'
  * getAll - Return all the operations
  */
 module.exports.getAll = asyncHandler(async (req, res) => {
-  const registry = await repository.getAlle()
+  const registry = await repository.getAll()
   return res.send(registry)
 })
 

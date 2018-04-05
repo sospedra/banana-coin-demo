@@ -2,6 +2,6 @@ const express = require('express')
 const { combineRoutes } = require('../services/router')
 const routes = require('./routes')
 
-const bananaCoinRouter = express.Router()
+const authRouter = express.Router()
 
-module.exports = combineRoutes(bananaCoinRouter, routes)
+module.exports = combineRoutes(authRouter, routes)

@@ -5,11 +5,9 @@ pe.skipNodeFiles()
 pe.skipPackage('express')
 
 module.exports.asyncHandler = (callback) => {
-  return (req, res, next) => {
-    Promise
-      .resolve(callback(req, res, next))
-      .catch(next)
-  }
+  return (req, res, next) => Promise
+    .resolve(callback(req, res, next))
+    .catch(next)
 }
 
 module.exports.errorMiddleware = (err, req, res, next) => {
