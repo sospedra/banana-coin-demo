@@ -1,4 +1,5 @@
 module.exports.ALGORITHM = 'sha256'
 module.exports.EXPIRE_TIME = '24h'
-module.exports.HEADER = 'x-auth-token'
+module.exports.API_HEADER = 'x-api-token'
+module.exports.AUTH_HEADER = 'x-auth-token'
 module.exports.SECRET = '🍌'
