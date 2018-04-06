@@ -1,12 +1,15 @@
 const express = require('express')
+const monitor = require('express-status-monitor')
 const bodyParser = require('body-parser')
-const app = express()
 
 const bananaCoin = require('./banana-coin')
 const auth = require('./auth')
 const { authMiddleware, securizationMiddleware } = require('./auth/middleware')
 const { errorMiddleware } = require('./services/errors')
 
+const app = express()
+
+app.use(monitor())
 app.use(bodyParser.json())
 app.use(securizationMiddleware)
 app.use('/auth', auth)
