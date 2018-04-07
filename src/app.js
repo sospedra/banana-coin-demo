@@ -1,6 +1,7 @@
 const express = require('express')
 const monitor = require('express-status-monitor')
 const morgan = require('morgan')
+const helmet = require('helmet')
 const bodyParser = require('body-parser')
 
 const bananaCoin = require('./banana-coin')
@@ -12,6 +13,7 @@ const PORT = 1337
 const app = express()
 
 app.use(monitor())
+app.use(helmet())
 app.use(morgan('tiny'))
 app.use(bodyParser.json())
 app.use(securizationMiddleware)
