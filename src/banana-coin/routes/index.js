@@ -1,5 +1,5 @@
-const repository = require('../services/repository')(__dirname, 'db.json')
-const { asyncHandler } = require('../services/router')
+const repository = require('../../services/repository')(__dirname, '../db.json')
+const { asyncHandler } = require('../../services/router')
 
 const STATUS_OPEN = 'open'
 const STAUTS_CLOSE = 'close'
