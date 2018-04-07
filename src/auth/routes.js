@@ -1,7 +1,9 @@
 const crypto = require('crypto')
 const jwt = require('jsonwebtoken')
+
 const repository = require('../services/repository')(__dirname, 'db.json')
-const { asyncHandler } = require('../services/errors')
+const { asyncHandler } = require('../services/router')
+const { sendError } = require('../services/router')
 const { ALGORITHM, EXPIRE_TIME, SECRET } = require('./constants')
 
 /**
@@ -15,7 +17,7 @@ module.exports.signin = asyncHandler(async (req, res) => {
 
   return user.password === hash
     ? res.send(token)
-    : res.status(401).send({ message: 'Invalid credentials' })
+    : sendError(res).badCredentials()
 })
 
 module.exports.signin.verb = 'post'
