@@ -1,5 +1,4 @@
-const express = require('express')
-const { combineRoutes } = require('../services/router')
+const { createRouter } = require('../services/router')
 
 module.exports.path = '/auth'
-module.exports.current = combineRoutes(express.Router(), require('./routes'))
+module.exports.current = createRouter(require('./routes'))

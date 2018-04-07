@@ -1,5 +1,8 @@
+const { chunk, get } = require('lodash')
+
 const repository = require('../../services/repository')(__dirname, '../db.json')
 const { asyncHandler } = require('../../services/router')
+const { getPageFromQuery, createLinks } = require('../../services/jsonapi')
 
 const STATUS_OPEN = 'open'
 const STAUTS_CLOSE = 'close'
@@ -8,8 +11,21 @@ const STAUTS_CLOSE = 'close'
  * getAll - Return all the operations
  */
 module.exports.getAll = asyncHandler(async (req, res) => {
+  const { number, size } = getPageFromQuery(req.query)
   const registry = await repository.getAll()
-  return res.send(registry)
+  const pages = chunk(registry, size)
+  const attributes = get(pages, number)
+  const lastPage = pages.length - 1
+
+  return res.send({
+    data: {
+      type: 'coins',
+      id: number,
+      attributes
+    },
+    meta: { lastPage },
+    links: createLinks(req, number, lastPage)
+  })
 })
 
 module.exports.getAll.verb = 'get'
@@ -20,7 +36,7 @@ module.exports.getAll.path = '/'
  */
 module.exports.getByID = asyncHandler(async (req, res) => {
   const log = await repository.getByID(parseInt(req.params.id))
-  return res.send(log)
+  return res.send({ data: log })
 })
 
 module.exports.getByID.verb = 'get'

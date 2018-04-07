@@ -5,7 +5,7 @@ module.exports.createVersion = (callback) => {
 
   callback(version)
 
-  version.use((req, res, next) => {
+  version.use((req, res) => {
     res.redirect(301, req.url)
   })
 
