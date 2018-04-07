@@ -11,6 +11,6 @@ module.exports.errorMiddleware = (err, req, res, next) => {
 
 module.exports.sendError = (res) => ({
   badCredentials: () => res.status(401).send({ message: 'Bad auth credentials' }),
-  unauth: () => res.status(401).send({ message: 'Missing or invalid AUTH token' }),
+  unauth: () => res.status(401).send({ message: 'Missing or invalid Authorization header' }),
   unsecure: () => res.status(401).send({ message: 'Missing or invalid API token' })
 })
