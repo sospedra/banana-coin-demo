@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`service errors should return a collection of errors responses 1`] = `
+Object {
+  "badCredentials": [Function],
+  "critical": [Function],
+  "unauth": [Function],
+  "unsecure": [Function],
+}
+`;
+
+exports[`service errors should return a collection of errors responses 2`] = `
+Object {
+  "message": "Bad auth credentials",
+}
+`;
+
+exports[`service errors should return a collection of errors responses 3`] = `
+Object {
+  "messgae": "Unknown internal critical error",
+}
+`;
+
+exports[`service errors should return a collection of errors responses 4`] = `
+Object {
+  "message": "Missing or invalid Authorization header",
+}
+`;
+
+exports[`service errors should return a collection of errors responses 5`] = `
+Object {
+  "message": "Missing or invalid API token",
+}
+`;
