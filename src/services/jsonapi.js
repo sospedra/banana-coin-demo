@@ -1,7 +1,6 @@
 const { defaultTo } = require('lodash')
 
 const replacePageNumber = (route, number) => (replacement) => {
-  console.log(number, replacement)
   return route.replace(`page[number]=${number}`, `page[number]=${replacement}`)
 }
 

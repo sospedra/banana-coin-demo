@@ -1,17 +1,12 @@
 /* global jest */
+const fake = 1337
+const getID = module.exports.getID = () => fake
 const getBody = module.exports.getBody = () => ({
   name: 'btc',
-  value: 1337
+  value: fake
 })
 
-const getID = module.exports.getID = () => 1337
-
-module.exports.createRes = (send = jest.fn()) => ({
-  json: jest.fn(),
-  send
-})
-
-module.exports.createReq = (body = getBody(), id = getID()) => ({
-  body,
-  params: { id }
-})
+module.exports.fake = fake
+module.exports.createRes = (send = jest.fn(), sendStatus = jest.fn()) => ({ send, sendStatus })
+module.exports.createReq = (body = getBody(), id = getID()) => ({ body, params: { id } })
+module.exports.createJSONAPI = (data = fake) => ({ data })

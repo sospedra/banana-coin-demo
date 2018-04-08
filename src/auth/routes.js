@@ -2,14 +2,14 @@ const crypto = require('crypto')
 const jwt = require('jsonwebtoken')
 
 const repository = require('../services/repository')(__dirname, 'db.json')
-const { asyncHandler } = require('../services/router')
+const { promisify } = require('../services/router')
 const { sendError } = require('../services/router')
 const { ALGORITHM, EXPIRE_TIME, SECRET } = require('./constants')
 
 /**
  * signin - Check credentials and return valid token
  */
-module.exports.signin = asyncHandler(async (req, res) => {
+module.exports.signin = promisify(async (req, res) => {
   const { username, password } = req.body
   const hash = crypto.createHash(ALGORITHM).update(password).digest('hex')
   const token = jwt.sign({ username }, SECRET, { expiresIn: EXPIRE_TIME })

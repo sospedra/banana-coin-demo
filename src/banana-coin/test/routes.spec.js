@@ -2,25 +2,26 @@
 const routes = require('../routes')
 const stubs = require('./stubs')
 
+jest.mock('../../services/repository', () => () => {
+    const { fake } = require('./stubs')
+    return {
+      create: jest.fn(() => fake),
+      getAll: jest.fn(() => fake),
+      getByID: jest.fn(() => fake),
+      purge: jest.fn(() => fake),
+      remove: jest.fn(() => fake),
+      update: jest.fn(() => fake)
+    }
+})
+
 describe('operations routes', () => {
-  it('should return all the operations from getAll', () => {
+  it('should return all the operations from getByID', async () => {
+    const req = stubs.createReq()
     const res = stubs.createRes()
 
-    routes.getAll({}, res)
+    await routes.getByID(req, res)
 
-    expect(res.send).toHaveBeenCalledWith([])
-    expect(Object.entries(routes.getAll)).toMatchSnapshot()
-  })
-
-  it('should create one operation from create', () => {
-    const res = stubs.createRes()
-
-    routes.create(stubs.createReq(), res)
-    expect(res.send).toHaveBeenCalledWith({ id: 0 })
-
-    routes.create(stubs.createReq(), res)
-    expect(res.send).toHaveBeenCalledWith({ id: 1 })
-
-    expect(Object.entries(routes.create)).toMatchSnapshot()
+    expect(res.send).toHaveBeenCalledWith(stubs.createJSONAPI())
+    expect(Object.entries(routes.getByID)).toMatchSnapshot()
   })
 })
