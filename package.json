@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "test": "jest src/**/test/*.spec.js --collectCoverage"
+    "test": "jest src/**/**/*.spec.js --collectCoverage"
   },
   "repository": {
     "type": "git",
@@ -24,7 +24,6 @@
     "helmet": "^3.12.0",
     "jsonwebtoken": "^8.2.1",
     "morgan": "^1.9.0",
-    "passport": "^0.4.0",
     "pretty-error": "^2.1.1"
   },
   "devDependencies": {
