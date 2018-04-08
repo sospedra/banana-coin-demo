@@ -6,7 +6,6 @@ jest.mock('util', () => {
   return { promisify: jest.fn(() => () => fixture) }
 })
 
-
 describe('service repository', () => {
   const dirname = 'dirname'
   const dbname = 'dbname'

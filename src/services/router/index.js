@@ -9,8 +9,7 @@ module.exports.promisify = (callback) => {
 module.exports.createRouter = (routes) => {
   const router = express.Router()
 
-  Object.keys(routes).forEach((key) => {
-    const route = routes[key]
+  Object.values(routes).forEach((route) => {
     router[route.verb](route.path, route)
   })
 

@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`service router should create a router given some routes 1`] = `
+Object {
+  "get": [MockFunction] {
+    "calls": Array [
+      Array [
+        "/",
+        [Function],
+      ],
+    ],
+  },
+}
+`;
