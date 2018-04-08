@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`service versions should create a version with a possible callback 1`] = `
+Object {
+  "use": [MockFunction] {
+    "calls": Array [
+      Array [
+        [Function],
+      ],
+    ],
+  },
+}
+`;

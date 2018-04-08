@@ -1,6 +1,7 @@
+const { noop } = require('lodash')
 const express = require('express')
 
-module.exports.createVersion = (callback) => {
+module.exports.createVersion = (callback = noop) => {
   const version = express.Router()
 
   callback(version)
