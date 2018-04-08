@@ -1,0 +1,1 @@
+module.exports = JSON.stringify({"lastID":4,"logs":[{"name":"bna","value":2000,"status":"close","id":0},{"name":"bna","value":1990,"status":"open","id":1},{"name":"bna","value":1990,"status":"open","id":2},{"name":"bna","value":1990,"status":"open","id":4}],"lastModified":1522774383323})

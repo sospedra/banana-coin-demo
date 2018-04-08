@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`service repository create should return the id of the new log 1`] = `5`;
+
+exports[`service repository getAll should return all the fixture 1`] = `
+Array [
+  Object {
+    "id": 0,
+    "name": "bna",
+    "status": "close",
+    "value": 2000,
+  },
+  Object {
+    "id": 1,
+    "name": "bna",
+    "status": "open",
+    "value": 1990,
+  },
+  Object {
+    "id": 2,
+    "name": "bna",
+    "status": "open",
+    "value": 1990,
+  },
+  Object {
+    "id": 4,
+    "name": "bna",
+    "status": "open",
+    "value": 1990,
+  },
+]
+`;
+
+exports[`service repository getByID should return one log from the fixture 1`] = `
+Object {
+  "id": 0,
+  "name": "bna",
+  "status": "close",
+  "value": 2000,
+}
+`;
