@@ -9,7 +9,7 @@ module.exports.getPageFromQuery = (query = { page: {} }) => ({
   size: defaultTo(parseInt(query.page.size), 1)
 })
 
-module.exports.createLinks = (req, number, lastPage) => {
+module.exports.createLinks = (req = {}, number, lastPage) => {
   const hasPrev = number > 0
   const hasNext = number < lastPage
   const originalRoute = decodeURIComponent([

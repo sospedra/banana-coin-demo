@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`service jsonapi should return a jsonapi links object 1`] = `
+Object {
+  "first": "http://localhost/api/route?page[number]=0&page[size]=10&gran=canaria",
+  "last": "http://localhost/api/route?page[number]=10&page[size]=10&gran=canaria",
+  "next": "http://localhost/api/route?page[number]=3&page[size]=10&gran=canaria",
+  "prev": "http://localhost/api/route?page[number]=1&page[size]=10&gran=canaria",
+  "self": "http://localhost/api/route?page[number]=2&page[size]=10&gran=canaria",
+}
+`;
