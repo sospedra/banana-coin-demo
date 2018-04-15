@@ -2,7 +2,7 @@ const { chunk, get } = require('lodash')
 
 const repository = require('../../services/repository')(__dirname, '../db.json')
 const { promisify } = require('../../services/router')
-const { getPageFromQuery, createLinks } = require('../../services/jsonapi')
+const { getPageFromQuery, createLinks, createJAR } = require('../../services/jsonapi')
 
 const STATUS_OPEN = 'open'
 const STAUTS_CLOSE = 'close'
@@ -14,15 +14,10 @@ module.exports.getAll = promisify(async (req, res) => {
   const { number, size } = getPageFromQuery(req.query)
   const registry = await repository.getAll()
   const pages = chunk(registry, size)
-  const attributes = get(pages, number)
   const lastPage = pages.length - 1
 
   return res.send({
-    data: {
-      type: 'coins',
-      id: number,
-      attributes
-    },
+    ...createJAR('coins', get(pages, number), number),
     meta: { lastPage },
     links: createLinks(req, number, lastPage)
   })
@@ -30,13 +25,20 @@ module.exports.getAll = promisify(async (req, res) => {
 
 module.exports.getAll.verb = 'get'
 module.exports.getAll.path = '/'
+module.exports.getAll.blueprint = `
+  # GET /banana-coin-sexy-lady
+  + Response 200 (application/json)
+      Hello World!
+`
 
 /**
  * getByID - Return one operation given the id
  */
 module.exports.getByID = promisify(async (req, res) => {
-  const log = await repository.getByID(parseInt(req.params.id))
-  return res.send({ data: log })
+  const { id } = req.params
+  const log = await repository.getByID(id)
+
+  return res.send(createJAR('coin', log, id))
 })
 
 module.exports.getByID.verb = 'get'
@@ -51,7 +53,7 @@ module.exports.create = promisify(async (req, res) => {
     status: STATUS_OPEN
   })
 
-  return res.status(201).send({ id: newOperationID })
+  return res.status(201).send(createJAR('coin', undefined, newOperationID))
 })
 
 module.exports.create.verb = 'post'
