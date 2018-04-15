@@ -14,6 +14,7 @@ pe.skipPackage('express')
 const sendError = module.exports.sendError = (res) => ({
   badCredentials: () => res.status(401).send({ error: 'Bad auth credentials' }),
   critical: () => res.status(500).send({ error: 'Unknown internal critical error' }),
+  docs: () => res.status(500).send({ error: 'Something break while generating docs' }),
   missing: () => res.status(404).send({ error: 'Route not found. And never been here' }),
   unauth: () => res.status(403).send({ error: 'Missing or invalid Authorization header' }),
   unsecureAPI: () => res.status(401).send({ error: 'Missing or invalid API token' }),

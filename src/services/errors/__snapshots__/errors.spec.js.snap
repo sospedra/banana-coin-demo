@@ -6,7 +6,8 @@ Object {
   "critical": [Function],
   "missing": [Function],
   "unauth": [Function],
-  "unsecure": [Function],
+  "unsecureAPI": [Function],
+  "unsecureType": [Function],
   "version": [Function],
 }
 `;
@@ -42,6 +43,12 @@ Object {
 `;
 
 exports[`service errors should return a collection of errors responses 7`] = `
+Object {
+  "error": "Missing or invalid content type header",
+}
+`;
+
+exports[`service errors should return a collection of errors responses 8`] = `
 Object {
   "error": "Unsupported version number",
 }

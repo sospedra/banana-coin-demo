@@ -29,7 +29,7 @@ module.exports.generateDocs = (blueprints = []) => {
 
   return (req, res) => {
     return render(blueprint, {})
-      .then(res.send)
+      .then((html) => res.send(html))
       .catch(() => sendError(res).docs())
   }
 }
