@@ -10,5 +10,24 @@ Array [
     "path",
     "/:id",
   ],
+  Array [
+    "blueprint",
+    "
+## GET /banana-coin/:id
++ Response 200 (application/json)
+  {
+    data: {
+      type: 'coin',
+      id: 13,
+      attributes: {
+        id: 13,
+        name: 'coin',
+        status: 'open',
+        value: 1337
+      }
+    }
+  }
+",
+  ],
 ]
 `;
