@@ -4,6 +4,7 @@ exports[`service errors should return a collection of errors responses 1`] = `
 Object {
   "badCredentials": [Function],
   "critical": [Function],
+  "docs": [Function],
   "missing": [Function],
   "unauth": [Function],
   "unsecureAPI": [Function],
@@ -26,29 +27,35 @@ Object {
 
 exports[`service errors should return a collection of errors responses 4`] = `
 Object {
-  "error": "Route not found. And never been here",
+  "error": "Something break while generating docs",
 }
 `;
 
 exports[`service errors should return a collection of errors responses 5`] = `
 Object {
-  "error": "Missing or invalid Authorization header",
+  "error": "Route not found. And never been here",
 }
 `;
 
 exports[`service errors should return a collection of errors responses 6`] = `
 Object {
-  "error": "Missing or invalid API token",
+  "error": "Missing or invalid Authorization header",
 }
 `;
 
 exports[`service errors should return a collection of errors responses 7`] = `
 Object {
-  "error": "Missing or invalid content type header",
+  "error": "Missing or invalid API token",
 }
 `;
 
 exports[`service errors should return a collection of errors responses 8`] = `
+Object {
+  "error": "Missing or invalid content type header",
+}
+`;
+
+exports[`service errors should return a collection of errors responses 9`] = `
 Object {
   "error": "Unsupported version number",
 }
