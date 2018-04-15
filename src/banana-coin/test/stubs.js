@@ -9,4 +9,3 @@ const getBody = module.exports.getBody = () => ({
 module.exports.fake = fake
 module.exports.createRes = (send = jest.fn(), sendStatus = jest.fn()) => ({ send, sendStatus })
 module.exports.createReq = (body = getBody(), id = getID()) => ({ body, params: { id } })
-module.exports.createJSONAPI = (data = fake) => ({ data })

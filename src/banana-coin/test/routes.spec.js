@@ -1,17 +1,18 @@
-/* global expect, describe, it */
+/* global expect, describe, it, jest */
+const { createJAR } = require('../../services/jsonapi')
 const routes = require('../routes')
 const stubs = require('./stubs')
 
 jest.mock('../../services/repository', () => () => {
-    const { fake } = require('./stubs')
-    return {
-      create: jest.fn(() => fake),
-      getAll: jest.fn(() => fake),
-      getByID: jest.fn(() => fake),
-      purge: jest.fn(() => fake),
-      remove: jest.fn(() => fake),
-      update: jest.fn(() => fake)
-    }
+  const { fake } = require('./stubs')
+  return {
+    create: jest.fn(() => fake),
+    getAll: jest.fn(() => fake),
+    getByID: jest.fn(() => fake),
+    purge: jest.fn(() => fake),
+    remove: jest.fn(() => fake),
+    update: jest.fn(() => fake)
+  }
 })
 
 describe('operations routes', () => {
@@ -21,7 +22,7 @@ describe('operations routes', () => {
 
     await routes.getByID(req, res)
 
-    expect(res.send).toHaveBeenCalledWith(stubs.createJSONAPI())
+    expect(res.send).toHaveBeenCalledWith(createJAR('coin', stubs.fake, stubs.fake))
     expect(Object.entries(routes.getByID)).toMatchSnapshot()
   })
 })

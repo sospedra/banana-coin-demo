@@ -7,6 +7,7 @@ Object {
   "missing": [Function],
   "unauth": [Function],
   "unsecure": [Function],
+  "version": [Function],
 }
 `;
 
@@ -24,18 +25,24 @@ Object {
 
 exports[`service errors should return a collection of errors responses 4`] = `
 Object {
-  "error": "Missing or invalid Authorization header",
+  "error": "Route not found. And never been here",
 }
 `;
 
 exports[`service errors should return a collection of errors responses 5`] = `
 Object {
-  "error": "Missing or invalid API token",
+  "error": "Missing or invalid Authorization header",
 }
 `;
 
 exports[`service errors should return a collection of errors responses 6`] = `
 Object {
-  "error": "Route not found. Never been here",
+  "error": "Missing or invalid API token",
+}
+`;
+
+exports[`service errors should return a collection of errors responses 7`] = `
+Object {
+  "error": "Unsupported version number",
 }
 `;

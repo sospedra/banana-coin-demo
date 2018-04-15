@@ -9,3 +9,13 @@ Object {
   "self": "http://localhost/api/route?page[number]=2&page[size]=10&gran=canaria",
 }
 `;
+
+exports[`service jsonapi should return a valid JSON API Response 1`] = `
+Object {
+  "attributes": Object {
+    "nanana": "!",
+  },
+  "id": 1337,
+  "type": "batman",
+}
+`;
