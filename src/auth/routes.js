@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken')
 
 const repository = require('../services/repository')(__dirname, 'db.json')
 const { promisify } = require('../services/router')
-const { sendError } = require('../services/error')
+const { sendError } = require('../services/errors')
 const { createJAR } = require('../services/jsonapi')
 const { ALGORITHM, EXPIRE_TIME, SECRET } = require('./constants')
 

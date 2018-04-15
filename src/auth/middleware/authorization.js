@@ -2,7 +2,6 @@ const jwt = require('jsonwebtoken')
 
 const { sendError } = require('../../services/errors')
 const { AUTH_HEADER, SECRET } = require('../constants')
-const tokensList = require('../tokens')
 
 module.exports = (req, res, next) => {
   const token = req.headers[AUTH_HEADER]
