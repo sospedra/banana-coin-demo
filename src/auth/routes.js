@@ -3,7 +3,8 @@ const jwt = require('jsonwebtoken')
 
 const repository = require('../services/repository')(__dirname, 'db.json')
 const { promisify } = require('../services/router')
-const { sendError } = require('../services/router')
+const { sendError } = require('../services/error')
+const { createJAR } = require('../services/jsonapi')
 const { ALGORITHM, EXPIRE_TIME, SECRET } = require('./constants')
 
 /**
@@ -16,7 +17,7 @@ module.exports.signin = promisify(async (req, res) => {
   const user = await repository.getByID(username)
 
   return user.password === hash
-    ? res.send(token)
+    ? res.send(createJAR('auth-token', token))
     : sendError(res).badCredentials()
 })
 
