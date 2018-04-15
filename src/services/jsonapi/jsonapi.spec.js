@@ -1,7 +1,14 @@
 /* global expect, describe, it */
-const { getPageFromQuery, createLinks } = require('./')
+const { createJAR, getPageFromQuery, createLinks } = require('./')
 
 describe('service jsonapi', () => {
+  it('should return a valid JSON API Response', () => {
+    const response = createJAR('batman', { nanana: '!' }, 1337)
+
+    expect(response).toMatchSnapshot()
+    expect(response).toBeAnInstanceOf(Object)
+  })
+
   it('should parse the page form a req.query', () => {
     const number = 10
     const size = 60

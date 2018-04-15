@@ -4,6 +4,7 @@ exports[`service errors should return a collection of errors responses 1`] = `
 Object {
   "badCredentials": [Function],
   "critical": [Function],
+  "missing": [Function],
   "unauth": [Function],
   "unsecure": [Function],
 }
@@ -11,24 +12,30 @@ Object {
 
 exports[`service errors should return a collection of errors responses 2`] = `
 Object {
-  "message": "Bad auth credentials",
+  "error": "Bad auth credentials",
 }
 `;
 
 exports[`service errors should return a collection of errors responses 3`] = `
 Object {
-  "messgae": "Unknown internal critical error",
+  "error": "Unknown internal critical error",
 }
 `;
 
 exports[`service errors should return a collection of errors responses 4`] = `
 Object {
-  "message": "Missing or invalid Authorization header",
+  "error": "Missing or invalid Authorization header",
 }
 `;
 
 exports[`service errors should return a collection of errors responses 5`] = `
 Object {
-  "message": "Missing or invalid API token",
+  "error": "Missing or invalid API token",
+}
+`;
+
+exports[`service errors should return a collection of errors responses 6`] = `
+Object {
+  "error": "Route not found. Never been here",
 }
 `;
